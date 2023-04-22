@@ -32,4 +32,4 @@ Github 레포에서 md문법 사용하여 업로드
 
 # 커리큘럼
 
-[👉 노션링크참조](https://www.notion.so/MTG-T5-7cd5d421bcad4fd8b33df1ace880632b?pvs=4](https://marshy-okra-854.notion.site/MTG-T5-7cd5d421bcad4fd8b33df1ace880632b)
+[👉 노션링크참조](https://marshy-okra-854.notion.site/MTG-T5-7cd5d421bcad4fd8b33df1ace880632b)
