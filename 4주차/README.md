@@ -2,7 +2,7 @@
 
 ## 목차
 
-- [let, const와 블록 레벨 스코프]()
+- [let, const와 블록 레벨 스코프](/4%EC%A3%BC%EC%B0%A8#let-const%EC%99%80-%EB%B8%94%EB%A1%9D-%EB%A0%88%EB%B2%A8-%EC%8A%A4%EC%BD%94%ED%94%84)
 - [템플릿 리터럴]()
 - [화살표 함수]()
 - [매개변수 기본값, Rest 파라미터, Spread 문법, Rest/Spread 프로퍼티](/es6-extended-parameter-handling)
