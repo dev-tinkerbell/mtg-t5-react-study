@@ -158,6 +158,62 @@ console.log(pow(10)); // 100
 
 ---
 
+### 화살표함수와 일반함수 차이
+
+1. this
+   |화살표함수|일반함수|
+   |---|---|
+   |상위 스코프의 this를 가리킨다|일반적으로 함수를 호출 - this는 global객체 |
+   ||메소드함수로 호출 - this는 메소드를 소유한 객체|
+   ||생성자를 호출한 - this는 새 인스턴스|
+
+2. Arguments
+
+   | 화살표함수 | 일반함수    |
+   | ---------- | ----------- |
+   | 사용가능   | 사용 불가능 |
+
+   ```js
+   // 화살표함수
+   const arrFunc = () => {
+     console.log(arguments, arguments[0]); //arguments is not defined
+   };
+   arrFunc(1, 2, 3);
+
+   //일반함수
+   function regularFunc() {
+     console.log(arguments, arguments[0]); //[1,2,3],1
+   }
+   regularFunc(1, 2, 3);
+   ```
+
+3. 생성자함수 사용
+
+   | 화살표함수 | 일반함수    |
+   | ---------- | ----------- |
+   | 사용가능   | 사용 불가능 |
+
+   ```js
+   // 화살표함수
+   const CarrowFunc = () => {
+     this.age = 20;
+   };
+   const a = new CarrowFunc(); // CarrowFunc is not a constructor
+
+   //일반함수
+   function Cfunc() {
+     this.age = 20;
+   }
+   const a = new Cfunc();
+   console.log(a.age); // 20
+   ```
+
+4. prototype 프로퍼티
+
+   | 화살표함수 | 일반함수 |
+   | ---------- | -------- |
+   | 없음       | 있음     |
+
 ## 매개변수 기본값, Rest 파라미터, Spread 문법, Rest/Spread 프로퍼티
 
 ### 매개변수 기본값
@@ -404,3 +460,4 @@ console.log(firstName, lastName); // Ungmo Lee
 - [매개변수 기본값, Rest 파라미터, Spread 문법, Rest/Spread 프로퍼티](https://poiemaweb.com/es6-extended-parameter-handling)
 - [객체 리터럴 프로퍼티 기능 확장](https://poiemaweb.com/es6-enhanced-object-property)
 - [디스트럭처링](https://poiemaweb.com/es6-destructuring)
+- [일반함수와 화살표함수 차이](https://chaeyoung2.tistory.com/76)
