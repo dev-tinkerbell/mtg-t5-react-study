@@ -69,7 +69,6 @@
 제이쿼리의 ajax 통신 API를 이용하여 지정된 url에서 1번 상품 데이터를 받아오는 코드입니다. 비동기 처리를 위해 프로미스 대신에 콜백 함수를 사용
 
 
-
 ```jsx
    [Promise 적용]
 
@@ -174,4 +173,69 @@
 서버에서 제대로 응답을 받아오면 resolve() 메서드를 호출하고, 응답이 없으면 reject() 메서드를 호출, 호출된 메서드에 따라 then()이나 catch()로 분기하여 응답 결과 또는 오류를 출력합니다.
 
 ### async & await
+async와 await는 자바스크립트의 비동기 처리 패턴 중 가장 최근에 나온 문법입니다. 
+기존의 비동기 처리 방식인 콜백 함수와 프로미스의 단점을 보완하고 개발자가 읽기 좋은 코드를 작성할 수 있게 도와줍니다.
+
+```jsx
+//user라는 변수에 객체를 할당한 뒤 조건문으로 사용자의 아이디를 확인하고 콘솔에 사용자의 name 출력해라
+   var user = {
+     id: 1,
+     name: 'Josh'
+   };
+   if (user.id === 1) {
+     console.log(user.name); // Josh
+   }
+```
+위의 조건을 async & await를 간단히 적용하게 되면 아래와 같습니다.
+
+```jsx
+async function logName() {
+    //fetchUser() 메서드가 서버에서 사용자 정보를 가져오는 HTTP 통신 코드라고 가정
+   var user = await fetchUser('domain.com/users/1');
+   if (user.id === 1) {
+      console.log(user.name);
+   }
+}
+```
+
+예전빙식은 아래와 같습니다.
+```jsx
+function logName() {
+   var user = fetchUser('domain.com/users/1', function(user) {
+      if (user.id === 1) {
+         console.log(user.name);
+      }
+   });
+}
+```
+fetchUser()라고 하는 코드는 서버에서 데이터를 받아오는 HTTP 통신 코드라고 가정하고,
+일반적으로 자바스크립트의 비동기 처리 코드는 아래와 같이 콜백을 사용해야지 코드의 실행 순서를 보장받을 수 있기때문에 이렇게 사용했습니다.
+콜백을 사용하지 않는다면, 콘솔에는 undefinde가 나타날것 입니다.
+
+
+#### async & await 간단한 예제
+
+```jsx
+function fetchItems() {
+   return new Promise(function(resolve, reject) {
+      var items = [1,2,3];
+      resolve(items)
+   });
+}
+
+async function logItems() {
+   var resultItems = await fetchItems();
+   console.log(resultItems); // [1,2,3]
+}
+```
+- fetchItems() 함수는 프로미스 객체를 반환하는 함수(프로미스는 “자바스크립트 비동기 처리를 위한 객체“)
+- fetchItems() 함수를 실행하면 프로미스가 이행(Resolved)되며 결과 값은 items 배열이 됨
+- logItems() 함수를 실행하면 fetchItems() 함수의 결과 값인 items 배열이 resultItems 변수에 담김
+- 콘솔에는 [1,2,3]이 출력
+
+await를 사용하지 않았다면 데이터를 받아온 시점에 콘솔을 출력할 수 있게 콜백 함수나 .then()등을 사용해야 했을 겁니다.
+하지만 async await 문법 덕택에 비동기에 대한 사고를 하지 않아도 됩니다.
+
+
+
 
