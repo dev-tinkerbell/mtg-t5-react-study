@@ -198,7 +198,7 @@ async function logName() {
 }
 ```
 
-예전빙식은 아래와 같습니다.
+예전방식은 아래와 같습니다.
 ```jsx
 function logName() {
    var user = fetchUser('domain.com/users/1', function(user) {
