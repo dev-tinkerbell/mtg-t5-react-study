@@ -113,6 +113,9 @@ view에서 상태값이 변경되어 store에 업로드 해야하는 상황
 const dispatch = useAppDispatch();
 dispatch(setDashboardData(data));
 ```
+#### `useAppDispatch`란?
+dispatch - Redux 스토어 기능, 상태 변경을 트리거 하는 방법
+useAppDispatch - 타입이 지정된 dispatch를 사용하기 위함
 
 ### store의 state를 구독
 
@@ -128,3 +131,4 @@ const dashboardData = useAppSelector(dashboardDataSelector);
 - [configureStore 공식문서](https://redux-toolkit.js.org/api/configureStore)
 - [createSlice 공식문서](https://redux-toolkit.js.org/api/createSlice)
 - [React - configureStore를 사용한 스토어 생성](https://phsun102.tistory.com/103)
+- [dispatch 공식문서](https://react-redux.js.org/using-react-redux/connect-mapdispatch)
